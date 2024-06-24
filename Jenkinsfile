@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                bash 'newman run jenkins-api.postman_collection.json -e jenkins.postman_environment.json -r cli'
+                sh 'newman run jenkins-api.postman_collection.json -e jenkins.postman_environment.json -r cli'
             }
         }
     }
