@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { 
-            image 'dannydainton/htmlextra'
+            image 'postman/newman'
             args '-it --entrypoint=/bin/bash'
         }
     }
