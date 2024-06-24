@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "a9791aa5-282b-4f05-a3c2-f8e00aa00545",
+		"name": "jenkins-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23837108"
+	},
+	"item": [
+		{
+			"name": "[GET] - /store/inventory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status 200', () => {",
+							"    pm.expect(pm.response.code).to.equal(200); ",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/store/inventory",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"store",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
