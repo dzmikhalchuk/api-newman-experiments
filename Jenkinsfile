@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'dannydainton/htmlextra' }
+        docker { 
+            image 'dannydainton/htmlextra',
+            args '-it --entrypoint=/bin/bash'
+        }
     }
 
     stages {
