@@ -14,8 +14,15 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'npm install -g newman'
-                sh 'newman run jenkins-api.postman_collection.json -e jenkins.postman_environment.json -r cli'
+                sh 'npm install -g newman-reporter-htmlextra'
+                sh 'newman run jenkins-api.postman_collection.json -e jenkins.postman_environment.json -r htmlextra,cli,junit --reporter-htmlextra-export newman/report.html --reporter-junit-export newman/report.xml'
             }
         }
     }
+
+    post {
+    success {
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'newman', reportFiles: 'report.html', reportName: 'External API Report', reportTitles: '', useWrapperFileDirectly: true])
+    }
+  }
 }
