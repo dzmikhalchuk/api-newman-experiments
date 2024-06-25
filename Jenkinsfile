@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'npm install -g newman'
                 sh 'npm install -g newman-reporter-htmlextra'
-                sh 'newman run jenkins-api.postman_collection.json -e jenkins.postman_environment.json -r htmlextra,cli,junit --reporter-htmlextra-export newman/report.html --reporter-junit-export newman/report.xml'
+                sh 'newman run jenkins-api.postman_collection.json -e jenkins.postman_environment.json -r htmlextra,cli,junit --reporter-htmlextra-export newman/report.html --reporter-htmlextra-title "External API Report" --reporter-junit-export newman/report.xml'
             }
         }
     }
